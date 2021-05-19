@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx/src/binding/binding_manager.dart';
 import 'package:flutter_getx/src/dependency/dependences_manage.dart';
-import 'package:flutter_getx/src/dependency/dependency_controller.dart';
 import 'package:flutter_getx/src/home.dart';
 import 'package:flutter_getx/src/pages/binding_page.dart';
 import 'package:flutter_getx/src/pages/dummy.dart';
@@ -42,9 +42,7 @@ class MyApp extends StatelessWidget {
             // 페이지를 호출하면서 바인딩
             name: "/binding",
             page: () => BindingPage(),
-            binding: BindingsBuilder(() {
-              Get.lazyPut(() => DependencyController());
-            }))
+            binding: BindingManager())
       ],
     );
   }
