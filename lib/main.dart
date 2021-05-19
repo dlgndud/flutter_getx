@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getx/src/dependency/dependences_manage.dart';
+import 'package:flutter_getx/src/dependency/dependency_controller.dart';
 import 'package:flutter_getx/src/home.dart';
+import 'package:flutter_getx/src/pages/binding_page.dart';
 import 'package:flutter_getx/src/pages/dummy.dart';
 import 'package:flutter_getx/src/pages/user.dart';
 import 'package:flutter_getx/src/pages/firstnamed.dart';
@@ -36,6 +38,13 @@ class MyApp extends StatelessWidget {
             name: "/reactive_state/:param",
             page: () => ReactiveStateManagement()),
         GetPage(name: "/dependency/:param", page: () => DependencyManagePage()),
+        GetPage(
+            // 페이지를 호출하면서 바인딩
+            name: "/binding",
+            page: () => BindingPage(),
+            binding: BindingsBuilder(() {
+              Get.lazyPut(() => DependencyController());
+            }))
       ],
     );
   }
