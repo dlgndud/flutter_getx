@@ -13,7 +13,7 @@ class PixaRepository extends GetConnect {
 
   Future<PixaModel> loadPixaImages() async {
     String url =
-        '/api/?key=20798682-40cc45bff917604b921e5fc66&q=yellow flowers&per_page=10&image_type=photo&pretty=true';
+        '/api/?key=USER_KEY&q=yellow flowers&per_page=10&image_type=photo&pretty=true';
     final response = await get(url);
     if (response.hasError) {
       return Future.error(response.statusText);
