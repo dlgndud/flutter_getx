@@ -12,10 +12,17 @@ class PixaPage extends StatefulWidget {
 
 class _PixaPageState extends State<PixaPage> {
   PixaController pixaController = Get.put(PixaController());
+  Size _size;
 
   @override
   void initState() {
     super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _size = MediaQuery.of(context).size;
   }
 
   String title = Get.parameters['param'];
@@ -39,7 +46,7 @@ class _PixaPageState extends State<PixaPage> {
                   print(idx);
                 },
                 child: Container(
-                    width: 300,
+                    width: _size.width,
                     child: FadeInImage.assetNetwork(
                       placeholder: 'assets/images/loading-buffering.gif',
                       image: hit.previewUrl,
