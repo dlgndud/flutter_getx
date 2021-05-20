@@ -4,6 +4,7 @@ import 'package:flutter_getx/src/dependency/dependences_manage.dart';
 import 'package:flutter_getx/src/home.dart';
 import 'package:flutter_getx/src/pages/binding_page.dart';
 import 'package:flutter_getx/src/pages/dummy.dart';
+import 'package:flutter_getx/src/pages/pixa.dart';
 import 'package:flutter_getx/src/pages/user.dart';
 import 'package:flutter_getx/src/pages/firstnamed.dart';
 import 'package:flutter_getx/src/pages/secondnamed.dart';
@@ -42,7 +43,11 @@ class MyApp extends StatelessWidget {
             // 페이지를 호출하면서 바인딩
             name: "/binding",
             page: () => BindingPage(),
-            binding: BindingManager())
+            binding: BindingManager()),
+        GetPage(
+            name: "/pixa/:param",
+            page: () => PixaPage(),
+            binding: BindingManager()),
       ],
     );
   }

@@ -31,8 +31,8 @@ class Home extends StatelessWidget {
               child: Text("argument transport")),
           ElevatedButton(
               onPressed: () {
-                //Get.toNamed("/user/54314033?name=Paul&nickname=Hoolk");
-                Get.toNamed("/user/54314033");
+                //Get.toNamed("/user/12345?name=Paul&nickname=Hoolk");
+                Get.toNamed("/user/12345");
               },
               child: Text("동적 URL")),
           ElevatedButton(
@@ -56,6 +56,11 @@ class Home extends StatelessWidget {
                 Get.toNamed("/binding");
               },
               child: Text("바인딩")),
+          ElevatedButton(
+              onPressed: () {
+                Get.toNamed("/pixa/pixa");
+              },
+              child: Text("Pixa"))
         ],
       )),
     );
