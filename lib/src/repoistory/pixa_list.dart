@@ -9,16 +9,11 @@ class PixaRepository extends GetConnect {
   void onInit() {
     // TODO: implement onInit
     httpClient.baseUrl = 'https://pixabay.com';
-
-    // httpClient.addRequestModifier((request) {
-    //   request.headers['key'] = '20798682-40cc45bff917604b921e5fc66';
-    //   return request;
-    // });
   }
 
   Future<PixaModel> loadPixaImages() async {
     String url =
-        '/api/?key=USER_API&q=yellow flowers&per_page=10&image_type=photo&pretty=true';
+        '/api/?key=20798682-40cc45bff917604b921e5fc66&q=yellow flowers&per_page=10&image_type=photo&pretty=true';
     final response = await get(url);
     if (response.hasError) {
       return Future.error(response.statusText);
