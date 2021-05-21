@@ -11,9 +11,13 @@ class PixaRepository extends GetConnect {
     httpClient.baseUrl = 'https://pixabay.com';
   }
 
-  Future<PixaModel> loadPixaImages() async {
+  Future<PixaModel> loadPixaImages(int page) async {
+    String current_page = '${page}';
+
     String url =
-        '/api/?key=USER_KEY&q=yellow flowers&per_page=10&image_type=photo&pretty=true';
+        '/api/?key=KEY&q=yellow flowers&per_page=10&image_type=photo&pretty=true&page=${current_page}';
+    print(url);
+
     final response = await get(url);
     if (response.hasError) {
       return Future.error(response.statusText);
