@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_getx/src/pages/first.dart';
 import 'package:flutter_getx/src/state/simple_state_manager.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 class Home extends StatelessWidget {
@@ -12,6 +12,8 @@ class Home extends StatelessWidget {
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
+          SvgPicture.asset("assets/svg/iron_man.svg",
+              semanticsLabel: 'Acme Logo'),
           ElevatedButton(
               onPressed: () {
                 //Get.to(FirstPage());
