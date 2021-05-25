@@ -3,11 +3,21 @@ import 'package:flutter_getx/src/state/simple_state_manager.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  int _current_idx = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('라우트 관리 홈')),
+      drawer: Drawer(
+        child: Text("Drawer Menu"),
+      ),
       body: Center(
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -65,6 +75,23 @@ class Home extends StatelessWidget {
               child: Text("Pixa"))
         ],
       )),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _current_idx,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.ac_unit),
+            label: "받은견적",
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.perm_camera_mic), label: "보낸견적"),
+          BottomNavigationBarItem(icon: Icon(Icons.add_box), label: "요청"),
+        ],
+        onTap: (value) {
+          setState(() {
+            _current_idx = value;
+          });
+        },
+      ),
     );
   }
 }
