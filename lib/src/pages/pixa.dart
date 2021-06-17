@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_getx/src/controller/pixa_controller.dart';
 import 'package:flutter_getx/src/models/pixa_model.dart';
+import 'package:flutter_getx/src/pages/pixa_detail.dart';
 import 'package:get/get.dart';
 
 class PixaPage extends StatefulWidget {
@@ -36,6 +37,7 @@ class _PixaPageState extends State<PixaPage> {
         slivers: [
           SliverAppBar(
             title: Text("Pixabay API"),
+            floating: true,
           ),
           SliverList(
               delegate: SliverChildBuilderDelegate((context, idx) {
@@ -43,26 +45,30 @@ class _PixaPageState extends State<PixaPage> {
             Hit hit = pixaController.pixalist.value.hits[idx];
             print(hit.previewUrl);
             return Stack(children: [
-              GestureDetector(
-                  onTap: () {
-                    print(idx);
-                  },
-                  child: Container(
-                    width: _size.width,
-                    // child: FadeInImage.assetNetwork(
-                    //   placeholder: 'assets/images/loading-buffering.gif',
-                    //   image: hit.previewUrl,
-                    //   fit: BoxFit.fitWidth,
-                    // )),
-                    child: CachedNetworkImage(
-                      imageUrl: hit.previewUrl,
-                      placeholder: (context, url) => Container(
-                        child: Center(child: CircularProgressIndicator()),
-                        height: 30,
-                      ),
-                      fit: BoxFit.fitWidth,
+              Container(
+                width: _size.width,
+                // child: FadeInImage.assetNetwork(
+                //   placeholder: 'assets/images/loading-buffering.gif',
+                //   image: hit.previewUrl,
+                //   fit: BoxFit.fitWidth,
+                // )),
+                child: GestureDetector(
+                  child: CachedNetworkImage(
+                    imageUrl: hit.previewUrl,
+                    placeholder: (context, url) => Container(
+                      child: Center(child: CircularProgressIndicator()),
+                      height: 30,
                     ),
-                  )),
+                    fit: BoxFit.fitWidth,
+                  ),
+                  onTap: () {
+                    // current item load
+                    pixaController.selectedHit(hit);
+                    Get.toNamed('/pixa/detail/${idx}');
+                    //Get.to(PixaDetailView());
+                  },
+                ),
+              ),
               Text(
                 hit.user,
                 style: TextStyle(fontSize: 40, color: Colors.amber),

@@ -5,6 +5,7 @@ import 'package:flutter_getx/src/home.dart';
 import 'package:flutter_getx/src/pages/binding_page.dart';
 import 'package:flutter_getx/src/pages/dummy.dart';
 import 'package:flutter_getx/src/pages/pixa.dart';
+import 'package:flutter_getx/src/pages/pixa_detail.dart';
 import 'package:flutter_getx/src/pages/user.dart';
 import 'package:flutter_getx/src/pages/firstnamed.dart';
 import 'package:flutter_getx/src/pages/secondnamed.dart';
@@ -48,6 +49,10 @@ class MyApp extends StatelessWidget {
             name: "/pixa/:param",
             page: () => PixaPage(),
             binding: BindingManager()),
+        GetPage(
+            name: '/pixa/detail/:param',
+            page: () => PixaDetailView(),
+            binding: BindingManager())
       ],
     );
   }

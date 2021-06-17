@@ -9,6 +9,9 @@ class PixaController extends GetxController {
   Rx<PixaModel> pixalist = PixaModel(hits: []).obs;
   RxInt _page = 1.obs;
 
+  // selected object
+  Rx<Hit> selectedHit = Hit().obs;
+
   ScrollController scrollController = ScrollController();
 
   @override
@@ -27,6 +30,10 @@ class PixaController extends GetxController {
         _pixaLoad();
       }
     });
+  }
+
+  void _hitLoad(Hit hit) {
+    selectedHit(hit);
   }
 
   void _pixaLoad() async {

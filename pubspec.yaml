@@ -32,6 +32,7 @@ dependencies:
   provider: ^4.3.3
   cached_network_image: ^3.0.0
   flutter_svg: ^0.22.0
+  #flutter_barcode_scanner: ^2.0.0
 
 dev_dependencies:
   flutter_test:
