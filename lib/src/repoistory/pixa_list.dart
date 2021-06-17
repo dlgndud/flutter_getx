@@ -15,7 +15,7 @@ class PixaRepository extends GetConnect {
     String current_page = '${page}';
 
     String url =
-        '/api/?key=20798682-40cc45bff917604b921e5fc66&q=yellow flowers&per_page=10&image_type=photo&pretty=true&page=${current_page}';
+        '/api/?key=APIKEY&q=yellow flowers&per_page=10&image_type=photo&pretty=true&page=${current_page}';
     print(url);
 
     final response = await get(url);
